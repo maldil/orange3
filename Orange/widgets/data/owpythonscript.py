@@ -957,9 +957,8 @@ class OWPythonScript(OWWidget):
             else:
                 fn = filename
 
-            f = open(fn, 'w')
-            f.write(self.text.toPlainText())
-            f.close()
+            with open(fn, 'w') as f:
+                f.write(self.text.toPlainText())
 
     def initial_locals_state(self):
         d = {}
